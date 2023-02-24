@@ -1,0 +1,25 @@
+html {
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #152333 0%, #080724 100%);
+}
+
+#title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    color: #cccccc;
+    text-align: center;
+    font-family: "Agency FB";
+    font-weight: 100;
+    font-size: 50px;
+    letter-spacing: 10px;
+    margin-top: -60px;
+}
+
+#title h1 {
+    background: -webkit-linear-gradient(white, #797979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
