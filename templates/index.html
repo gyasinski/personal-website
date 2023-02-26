@@ -7,12 +7,33 @@
 </head>
 <body>
     <section class="wrapper">
-        <div id="stars1"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
+        <canvas id="stars1" width="getWindowWidth()" height="getWindowLength()"></canvas>
+        <canvas id="stars2" width="getWindowWidth()" height="getWindowLength()"></canvas>
+        <canvas id="stars3" width="getWindowWidth()" height="getWindowLength()"></canvas>
         <div id="title">
             <h1>Hello, my name is Greg</h1>
         </div>
     </section>
 </body>
+<script>
+    function drawStars(canvas_id, amount, star_size) {
+        var stars = document.getElementById(canvas_id).getContext("2d");
+        // Size the canvas
+        stars.canvas.width = window.innerWidth;
+        stars.canvas.height = window.innerHeight;
+
+        // Draw stars
+        for (let i = 0; i < amount; i++) {
+            stars.beginPath();
+            stars.arc(Math.floor(Math.random() * window.innerWidth),
+                Math.floor(Math.random() * window.innerHeight), star_size, 0, 2 * Math.PI);
+            stars.fillStyle = "white";
+            stars.fill();
+        }
+    }
+
+    drawStars("stars1", 50, 4);
+    drawStars("stars2", 150, 2.5);
+    drawStars("stars3", 400, 1);
+</script>
 </html>
