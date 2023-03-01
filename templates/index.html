@@ -7,6 +7,7 @@
 </head>
 <body>
     <section class="wrapper">
+        <canvas id="cursor"></canvas>
         <canvas id="stars1"></canvas>
         <canvas id="stars2"></canvas>
         <canvas id="stars3"></canvas>
@@ -14,9 +15,22 @@
             <h1>Hello, my name is Greg</h1>
         </div>
     </section>
-    <div id="shape">wat</div>
+    <div id="shape"></div>
 </body>
 <script>
+    var mycursor = document.getElementById("cursor").getContext("2d");
+
+    document.addEventListener('mousemove', function(e) {
+        mycursor.canvas.width = window.innerWidth;
+        mycursor.canvas.height = window.innerHeight;
+        mycursor.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        var grd = mycursor.createRadialGradient(e.clientX, e.clientY, 100, e.clientX, e.clientY, 1000);
+        grd.addColorStop(0, "#152333");
+        grd.addColorStop(1, "#07070a");
+        mycursor.fillStyle = grd;
+        mycursor.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    })
+
     function drawStars(canvas_id, amount, star_size) {
         // Find the correct canvas
         var stars = document.getElementById(canvas_id).getContext("2d");
@@ -38,38 +52,50 @@
     drawStars("stars2", 150, 2.5);
     drawStars("stars3", 400, 1);
 
+    var old_ST = window.scrollY;
+
     function scrollStars(canvas_id, speed) {
-        // Grab reference to the canvas *
+        // Grab reference to the canvas
         var this_canvas = document.getElementById(canvas_id).getContext("2d");
         // Grab image from whole canvas
         var imgData = this_canvas.getImageData(0, 0, this_canvas.canvas.width, this_canvas.canvas.height);
-        // Empty canvas for redrawing *
+        // Empty canvas for redrawing
         this_canvas.clearRect(0, 0, this_canvas.canvas.width, this_canvas.canvas.height);
         // Paste drawing data into canvas with y offset labelled speed
         this_canvas.putImageData(imgData, 0, speed);
         // Do this again but displaced by the canvas height
-        this_canvas.putImageData(imgData, 0, speed - this_canvas.canvas.height);
+        // check the value of speed so we can scroll in either direction
+        if (speed > 0) {
+            this_canvas.putImageData(imgData, 0, speed - this_canvas.canvas.height);
+        } else if (speed < 0) {
+            this_canvas.putImageData(imgData, 0, speed + this_canvas.canvas.height);
+        }
     }
 
-    function animate_stars1() {
-        requestAnimationFrame(animate_stars1);
-        scrollStars("stars1", 3);
+    function animate_stars() {
+        // Begin animation
+        requestAnimationFrame(animate_stars);
+        // If the user has scrolled down...
+        if (old_ST < window.scrollY) {
+            // Animate the stars to move upwards
+            scrollStars("stars1", -3);
+            scrollStars("stars2", -2);
+            scrollStars("stars3", -1);
+        // If the user has scroll up...
+        } else if (old_ST > window.scrollY) {
+            // Animate the stars to move downwards
+            scrollStars("stars1", 3);
+            scrollStars("stars2", 2);
+            scrollStars("stars3", 1);
+        // If neither conditions are met...
+        } else {
+            // Do nothing
+        }
+        // Update old scroll top
+        old_ST = window.scrollY;
     }
 
-    function animate_stars2() {
-        requestAnimationFrame(animate_stars2);
-        scrollStars("stars2", 2);
-    }
-
-    function animate_stars3() {
-        requestAnimationFrame(animate_stars3);
-        scrollStars("stars3", 1);
-    }
-
-    var old_ST = window.scrollY;
-    
-    animate_stars1();
-    animate_stars2();
-    animate_stars3();
+    // Execute animation
+    animate_stars();
 </script>
 </html>
