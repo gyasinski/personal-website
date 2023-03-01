@@ -1,6 +1,5 @@
 html {
     height: 100%;
-    overflow: hidden;
     background: radial-gradient(ellipse at bottom, #152333 0%, #07070a 100%);
 }
 
@@ -25,7 +24,13 @@ html {
 }
 
 canvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+}
+
+#shape {
+    width: 20px;
+    height: 2000px;
+    background-color: red;
 }

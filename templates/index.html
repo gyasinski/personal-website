@@ -14,6 +14,7 @@
             <h1>Hello, my name is Greg</h1>
         </div>
     </section>
+    <div id="shape">wat</div>
 </body>
 <script>
     function drawStars(canvas_id, amount, star_size) {
@@ -36,5 +37,39 @@
     drawStars("stars1", 50, 4);
     drawStars("stars2", 150, 2.5);
     drawStars("stars3", 400, 1);
+
+    function scrollStars(canvas_id, speed) {
+        // Grab reference to the canvas *
+        var this_canvas = document.getElementById(canvas_id).getContext("2d");
+        // Grab image from whole canvas
+        var imgData = this_canvas.getImageData(0, 0, this_canvas.canvas.width, this_canvas.canvas.height);
+        // Empty canvas for redrawing *
+        this_canvas.clearRect(0, 0, this_canvas.canvas.width, this_canvas.canvas.height);
+        // Paste drawing data into canvas with y offset labelled speed
+        this_canvas.putImageData(imgData, 0, speed);
+        // Do this again but displaced by the canvas height
+        this_canvas.putImageData(imgData, 0, speed - this_canvas.canvas.height);
+    }
+
+    function animate_stars1() {
+        requestAnimationFrame(animate_stars1);
+        scrollStars("stars1", 3);
+    }
+
+    function animate_stars2() {
+        requestAnimationFrame(animate_stars2);
+        scrollStars("stars2", 2);
+    }
+
+    function animate_stars3() {
+        requestAnimationFrame(animate_stars3);
+        scrollStars("stars3", 1);
+    }
+
+    var old_ST = window.scrollY;
+    
+    animate_stars1();
+    animate_stars2();
+    animate_stars3();
 </script>
 </html>
