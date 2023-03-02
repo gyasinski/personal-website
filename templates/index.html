@@ -20,9 +20,10 @@
 <script>
     var mycursor = document.getElementById("cursor").getContext("2d");
 
+    mycursor.canvas.width = window.innerWidth;
+    mycursor.canvas.height = window.innerHeight;
+
     document.addEventListener('mousemove', function(e) {
-        mycursor.canvas.width = window.innerWidth;
-        mycursor.canvas.height = window.innerHeight;
         mycursor.clearRect(0, 0, window.innerWidth, window.innerHeight);
         var grd = mycursor.createRadialGradient(e.clientX, e.clientY, 100, e.clientX, e.clientY, 1000);
         grd.addColorStop(0, "#152333");
@@ -49,8 +50,8 @@
     }
 
     drawStars("stars1", 50, 4);
-    drawStars("stars2", 150, 2.5);
-    drawStars("stars3", 400, 1);
+    drawStars("stars2", 300, 2.5);
+    drawStars("stars3", 800, 1);
 
     var old_ST = window.scrollY;
 
@@ -64,8 +65,9 @@
         // Paste drawing data into canvas with y offset labelled speed
         this_canvas.putImageData(imgData, 0, speed);
         // Do this again but displaced by the canvas height
-        // check the value of speed so we can scroll in either direction
+        // check the value of speed so that we know the scroll direction
         if (speed > 0) {
+            // Depending on scroll direction, we change whether new stars appear from the top or bottom
             this_canvas.putImageData(imgData, 0, speed - this_canvas.canvas.height);
         } else if (speed < 0) {
             this_canvas.putImageData(imgData, 0, speed + this_canvas.canvas.height);
