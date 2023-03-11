@@ -49,9 +49,21 @@
         }
     }
 
-    drawStars("stars1", 50, 4);
-    drawStars("stars2", 300, 2.5);
-    drawStars("stars3", 800, 1);
+    // Draw the stars. Have the amount of stars be related to the size of the screen
+    drawStars("stars1", window.innerHeight * window.innerWidth / 9000, 4);
+    drawStars("stars2", window.innerHeight * window.innerWidth / 5000, 2.5);
+    drawStars("stars3", window.innerHeight * window.innerWidth / 1000, 1);
+
+    // Make canvas adjustments when window is resized.
+    window.addEventListener('resize', function(e) {
+        // redraw stars to fit new window size
+        drawStars("stars1", window.innerHeight * window.innerWidth / 9000, 4);
+        drawStars("stars2", window.innerHeight * window.innerWidth / 5000, 2.5);
+        drawStars("stars3", window.innerHeight * window.innerWidth / 1000, 1);
+        // resize gradient canvas
+        mycursor.canvas.width = window.innerWidth;
+        mycursor.canvas.height = window.innerHeight;
+    })
 
     var old_ST = window.scrollY;
 
