@@ -5,6 +5,13 @@ function App() {
   return (
       <div className="App">
           <BuildStars />
+          <div className="toolBar">
+              <div className="toolButtons">
+                  <button className="toolButton" type="button">Experience</button>
+                  <button className="toolButton" type="button">Projects</button>
+                  <button className="toolButton" type="button">Contact Me</button>
+              </div>
+          </div>
           <div className="square">
             <h1>Hello, my name is Greg</h1>
           </div>

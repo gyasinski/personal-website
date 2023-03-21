@@ -1,5 +1,5 @@
 html {
-    height: 100%;
+    height: 100vh;
     background-image: linear-gradient(#2a73b2, #4aaead, #cbb949);
 }
 
@@ -10,7 +10,7 @@ h1 {
 }
 
 .square {
-    position: fixed;
+    position: absolute;
     margin-left: 50vh;
     margin-right: 50vw;
     background-color: white;
@@ -22,6 +22,32 @@ h1 {
 
 }
 
-.star {
+.toolBar {
+    position: fixed;
+    text-align: center;
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
+.toolButton {
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin: 10px;
+    border-radius: 30px;
+    height: 6vh;
+    width: 12vw;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.toolButton:hover {
+    background-color: white;
+    color: #2a73b2;
+}
+
+.toolButtons {
+    right: 0;
 }
