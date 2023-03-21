@@ -1,0 +1,27 @@
+html {
+    height: 100%;
+    background-image: linear-gradient(#2a73b2, #4aaead, #cbb949);
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    padding-top: 125px;
+}
+
+.square {
+    position: fixed;
+    margin-left: 50vh;
+    margin-right: 50vw;
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    top: 100px;
+
+}
+
+.star {
+
+}
