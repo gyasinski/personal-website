@@ -12,8 +12,10 @@ function App() {
                   <button className="toolButton" type="button">Contact Me</button>
               </div>
           </div>
-          <div className="square">
-            <h1>Hello, my name is Greg</h1>
+          <div className="screen">
+              <div className="glass1">
+                  <p>Hi im Greg</p>
+              </div>
           </div>
       </div>
   );

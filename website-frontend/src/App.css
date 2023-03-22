@@ -1,34 +1,48 @@
+/* Body and Text */
 html {
     height: 100vh;
     background-image: linear-gradient(#2a73b2, #4aaead, #cbb949);
+    overflow-x: hidden;
 }
 
 h1 {
     color: black;
     text-align: center;
-    padding-top: 125px;
 }
 
-.square {
-    position: absolute;
-    margin-left: 50vh;
-    margin-right: 50vw;
-    background-color: white;
-    border-radius: 30px;
-    text-align: center;
-    width: 500px;
-    height: 300px;
-    top: 100px;
-
+/* Shapes */
+.screen {
+    width: 100vh;
+    height: 100vw;
+    z-index: 1;
 }
 
+.glass1 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    height: 50vh;
+    width: 50vw;
+}
+
+/* Tool Bar */
 .toolBar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
     position: fixed;
-    text-align: center;
     height: 80px;
-    width: 100%;
+    width: 98.5vw;
+    border-radius: 40px;
     margin: 0;
     padding: 0;
+    z-index: 2;
 }
 
 .toolButton {
@@ -49,5 +63,10 @@ h1 {
 }
 
 .toolButtons {
-    right: 0;
+    margin-right: 0;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 0px;
 }
