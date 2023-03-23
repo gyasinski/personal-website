@@ -22,6 +22,16 @@ function App() {
                   <p>Projects</p>
               </div>
           </div>
+          <div className="screen">
+              <div className="glass1">
+                  <p>Experience</p>
+              </div>
+          </div>
+          <div className="screen">
+              <div className="glass2">
+                  <p>Contact Information</p>
+              </div>
+          </div>
       </div>
   );
 }
