@@ -8,10 +8,12 @@ html {
 h1 {
     color: black;
     text-align: center;
+    font-family: quicksand;
 }
 
 p {
     color: white;
+    font-family: quicksand;
 }
 
 /* Shapes */
@@ -20,20 +22,6 @@ p {
     width: 100vw;
     height: 100vh;
     z-index: 1;
-}
-
-.glass1 {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-    height: 70vh;
-    width: 50vw;
-    position: relative;
-    left: 2vw;
-    top: 15vh;
 }
 
 .glass2 {
@@ -85,10 +73,20 @@ p {
 }
 
 .toolButtons {
-    margin-right: 0;
+    position: relative;
+    text-align: right;
+    top: 4px;
 }
 
 /* Scroll Bar */
 ::-webkit-scrollbar {
     width: 0px;
+}
+
+@font-face {
+    font-family: quicksand;
+    src: url(../public/Quicksand-VariableFont_wght.ttf);
+}
+.quicksand {
+    font-family: quicksand;
 }

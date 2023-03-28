@@ -1,0 +1,51 @@
+.glass1 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    height: 70vh;
+    width: 50vw;
+    position: relative;
+    left: 2vw;
+    top: 15vh;
+}
+
+.glass2 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    border-radius: 150px;
+    left: 50px;
+    bottom: 50px;
+
+}
+
+.glass3 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    top: 250px;
+
+}
+
+.profile {
+    position: relative;
+    text-align: right;
+    bottom: 50vh;
+    left: 60vw;
+
+}

@@ -1,37 +1,17 @@
 import './App.css';
 import { Star } from 'react-awesome-shapes';
 
+import {Home} from './components/Home';
+import {Toolbar} from './components/Toolbar';
+
 function App() {
   return (
       <div className="App">
-          <BuildStars />
-          <div className="toolBar">
-              <div className="toolButtons">
-                  <button className="toolButton" type="button">Projects</button>
-                  <button className="toolButton" type="button">Experience</button>
-                  <button className="toolButton" type="button">Contact Me</button>
-              </div>
+          <div className="background">
+              <BuildStars />
           </div>
-          <div className="screen">
-              <div className="glass1">
-                  <p>Hi im Greg</p>
-              </div>
-          </div>
-          <div className="screen">
-              <div className="glass2">
-                  <p>Projects</p>
-              </div>
-          </div>
-          <div className="screen">
-              <div className="glass1">
-                  <p>Experience</p>
-              </div>
-          </div>
-          <div className="screen">
-              <div className="glass2">
-                  <p>Contact Information</p>
-              </div>
-          </div>
+          <Toolbar/>
+          <Home/>
       </div>
   );
 }
